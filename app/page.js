@@ -1,3 +1,4 @@
+import ClientSection from "./components/ClientSection";
 import CompaniesSection from "./components/CompaniesSection";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
@@ -12,6 +13,7 @@ export default function Home() {
       <StreamlineSection/>
       <CompaniesSection/>
       <TextGenerate/>
+      <ClientSection/>
     </>
   );
 }

@@ -45,7 +45,7 @@ export default function ClientSection() {
           <button className="px-5 py-1 bg-indigo-100 text-indigo-700 font-medium rounded-full mb-4">
             Why Choose Us
           </button>
-          <h2 className="text-4xl font-extrabold text-gray-900 leading-snug">
+          <h2 className="text-5xl font-bold text-gray-900 leading-snug">
             Automatically Cover Every <br />
             <span className="text-indigo-700">Touchpoint In The</span>{" "}
             <span className="text-pink-500">Client Journey</span>
