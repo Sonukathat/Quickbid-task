@@ -10,7 +10,7 @@ export default function FutureSection() {
         {/* Left Side - Image */}
         <div className="flex-1 flex justify-center">
           <img
-            src="/future.png" // replace with your image path
+            src="/hand-png-05.png" // replace with your image path
             alt="Mobile Chatbot"
             className="w-full md:w-[500px] object-contain"
           />
@@ -18,7 +18,7 @@ export default function FutureSection() {
 
         {/* Right Side - Text Content */}
         <div className="flex-1 text-center md:text-left">
-          <button className="px-4 py-1 bg-indigo-100 text-indigo-700 font-semibold rounded-full mb-4">
+          <button className="px-4 py-1 bg-linear-to-r from-indigo-600 to-blue-500 text-white font-semibold rounded-md mb-4">
             Our Future
           </button>
 
@@ -37,14 +37,14 @@ export default function FutureSection() {
           {/* Store Buttons */}
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-4">
             <img
-              src="/appstore.png" // replace with your App Store image
+              src="/app-store.png" // replace with your App Store image
               alt="App Store"
-              className="h-12 cursor-pointer"
+              className="h-12 cursor-pointer rounded-xl"
             />
             <img
-              src="/googleplay.png" // replace with your Play Store image
+              src="/play-store.png" // replace with your Play Store image
               alt="Google Play"
-              className="h-12 cursor-pointer"
+              className="h-12 cursor-pointer rounded-xl"
             />
           </div>
         </div>
