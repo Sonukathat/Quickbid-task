@@ -1,3 +1,4 @@
+import CompaniesSection from "./components/CompaniesSection";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import StreamlineSection from "./components/StreamlineSection";
@@ -8,6 +9,7 @@ export default function Home() {
       <Navbar />
       <HeroSection/>
       <StreamlineSection/>
+      <CompaniesSection/>
     </>
   );
 }

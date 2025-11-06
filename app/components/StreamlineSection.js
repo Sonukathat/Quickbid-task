@@ -32,7 +32,7 @@ export default function StreamlineSection() {
     <section className="py-24 bg-linear-to-b from-white to-indigo-50 text-center">
       <div className="max-w-5xl mx-auto px-4">
         {/* Top Button */}
-        <button className="px-5 py-1.5 bg-indigo-100 text-indigo-600 rounded-full font-medium text-sm mb-4 shadow-sm">
+        <button className="px-6 py-1.5 bg-linear-to-r from-indigo-600 to-blue-500 text-white rounded-md font-medium text-md mb-4 shadow-sm">
           Streamline
         </button>
 
