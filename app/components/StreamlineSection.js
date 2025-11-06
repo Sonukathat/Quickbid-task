@@ -67,16 +67,16 @@ export default function StreamlineSection() {
               ></div>
 
               {/* Image Over Circle */}
-              <div className="absolute -top-10 w-48 h-48">
+              <div className="absolute -top-10 w-70 h-70">
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="w-full h-full object-cover rounded-full shadow-lg"
+                  className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Text */}
-              <h3 className="text-xl font-semibold text-gray-900 mt-44">
+              <h3 className="text-xl font-semibold text-gray-900 mt-30">
                 {item.title}
               </h3>
               <p className="text-gray-600 mt-3 text-sm max-w-xs">
