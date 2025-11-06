@@ -42,7 +42,7 @@ export default function ClientSection() {
       <div className="max-w-7xl mx-auto text-center px-4">
         {/* Top Section */}
         <div className="mb-14">
-          <button className="px-5 py-1 bg-indigo-100 text-indigo-700 font-medium rounded-full mb-4">
+          <button className="px-5 py-1 bg-indigo-100 bg-linear-to-r from-indigo-600 to-blue-500 text-white font-medium rounded-md mb-4">
             Why Choose Us
           </button>
           <h2 className="text-5xl font-bold text-gray-900 leading-snug">
