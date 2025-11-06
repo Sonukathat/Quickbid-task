@@ -1,5 +1,6 @@
 import ClientSection from "./components/ClientSection";
 import CompaniesSection from "./components/CompaniesSection";
+import FutureSection from "./components/FutureSection";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import StreamlineSection from "./components/StreamlineSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <CompaniesSection/>
       <TextGenerate/>
       <ClientSection/>
+      <FutureSection/>
     </>
   );
 }
