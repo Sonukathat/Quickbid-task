@@ -15,26 +15,26 @@ export default function HeroSection() {
     return (
         <section
             className="relative w-full py-52 text-center overflow-hidden bg-cover bg-center"
-            style={{ backgroundImage: "url('/brush.png')" }} // 👈 apni bg image
+            style={{ backgroundImage: "url('/brush.png')" }} 
         >
             {/* 🔹 Animated Circles */}
             <motion.span
-                className="absolute top-[20%] left-[15%] w-10 h-10 bg-purple-400/30 rounded-full blur-sm"
+                className="absolute top-[20%] left-[15%] w-10 h-10 bg-purple-400 rounded-full"
                 animate={{ y: [0, -25, 0] }}
                 transition={floatTransition}
             />
             <motion.span
-                className="absolute bottom-[25%] right-[10%] w-16 h-16 bg-pink-400/30 rounded-full blur-md"
+                className="absolute bottom-[25%] right-[10%] w-16 h-16 bg-pink-400 rounded-full"
                 animate={{ y: [0, -30, 0] }}
                 transition={{ ...floatTransition, duration: 6, delay: 1 }}
             />
             <motion.span
-                className="absolute top-[40%] right-[30%] w-12 h-12 bg-blue-400/30 rounded-full blur-sm"
+                className="absolute top-[40%] right-[30%] w-12 h-12 bg-blue-400 rounded-full"
                 animate={{ y: [0, -20, 0] }}
                 transition={{ ...floatTransition, duration: 5 }}
             />
             <motion.span
-                className="absolute bottom-[15%] left-[20%] w-8 h-8 bg-indigo-400/30 rounded-full blur-sm"
+                className="absolute bottom-[15%] left-[20%] w-8 h-8 bg-indigo-400 rounded-full"
                 animate={{ y: [0, -18, 0] }}
                 transition={{ ...floatTransition, duration: 7, delay: 2 }}
             />
@@ -59,11 +59,11 @@ export default function HeroSection() {
                 </p>
 
                 <div className="mt-10 flex justify-center">
-                    <div className="relative w-full sm:w-2/3 lg:w-1/2">
+                    <div className="relative w-[90%]">
                         <input
                             type="text"
                             placeholder="Enter Keyword"
-                            className="w-full py-4 pl-6 pr-12 rounded-full shadow-md border border-gray-200 focus:outline-none text-gray-700 focus:ring-2 focus:ring-indigo-500 transition-all duration-300"
+                            className="w-full py-4 pl-6 pr-12 rounded-full bg-white text-gray-700"
                         />
                         <button className="absolute right-4 top-1/2 -translate-y-1/2 text-indigo-600 text-xl hover:text-indigo-700 transition">
                             <FiSearch />
