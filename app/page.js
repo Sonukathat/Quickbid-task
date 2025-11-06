@@ -2,6 +2,7 @@ import CompaniesSection from "./components/CompaniesSection";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import StreamlineSection from "./components/StreamlineSection";
+import TextGenerate from "./components/TextGenerate";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <HeroSection/>
       <StreamlineSection/>
       <CompaniesSection/>
+      <TextGenerate/>
     </>
   );
 }
