@@ -37,38 +37,40 @@ export default function NewsSection() {
 
   return (
     <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header Section */}
         <div className="text-center mb-14">
           <button className="px-5 py-1 bg-linear-to-r from-indigo-600 to-blue-500 text-white font-semibold rounded-md mb-4">
             Creative Approach
           </button>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900">
             Latest <span className="text-indigo-700">News</span>{" "}
             <span className="text-pink-500">& Blogs</span>
           </h2>
         </div>
 
-        {/* Unified Container (attached design) */}
-        <div className="bg-white shadow-2xl rounded-3xl overflow-hidden md:flex md:gap-0">
+        {/* Unified Container */}
+        <div className="bg-white shadow-2xl rounded-3xl overflow-hidden flex flex-col md:flex-row">
           {/* Left Column */}
-          <div className="md:w-1/2 border-r border-gray-100">
+          <div className="md:w-1/2 border-b md:border-b-0 md:border-r border-gray-200">
             {leftBlogs.map((blog, i) => (
               <div
                 key={i}
-                className={`p-6 transition hover:bg-gray-50 ${
-                  i === 1 ? "border-t border-gray-100" : ""
+                className={`p-5 sm:p-6 transition hover:bg-gray-50 ${
+                  i === 1 ? "border-t border-gray-200" : ""
                 }`}
               >
                 <img
                   src={blog.img}
                   alt={blog.title}
-                  className="w-full h-56 object-cover rounded-xl mb-4"
+                  className="w-full h-48 sm:h-56 object-cover rounded-xl mb-4"
                 />
-                <h3 className="text-xl font-semibold text-indigo-900 mb-2">
+                <h3 className="text-lg sm:text-xl font-semibold text-indigo-900 mb-2">
                   {blog.title}
                 </h3>
-                <p className="text-gray-600 text-sm mb-4">{blog.desc}</p>
+                <p className="text-gray-600 text-sm sm:text-base mb-4">
+                  {blog.desc}
+                </p>
                 <div className="flex items-center text-indigo-600 font-semibold text-sm cursor-pointer hover:text-indigo-800">
                   <span>Read More</span>
                   <FiArrowRight className="ml-2" />
@@ -82,20 +84,22 @@ export default function NewsSection() {
             {rightBlogs.map((blog, i) => (
               <div
                 key={i}
-                className={`p-6 flex items-center gap-5 transition hover:bg-gray-50 ${
-                  i !== 0 ? "border-t border-gray-100" : ""
+                className={`p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 transition hover:bg-gray-50 ${
+                  i !== 0 ? "border-t border-gray-200" : ""
                 }`}
               >
                 <img
                   src={blog.img}
                   alt={blog.title}
-                  className="w-54 h-54 object-cover rounded-xl"
+                  className="w-full sm:w-40 h-48 sm:h-28 object-cover rounded-xl"
                 />
                 <div>
                   <h3 className="text-lg font-semibold text-indigo-900 mb-1">
                     {blog.title}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-2">{blog.desc}</p>
+                  <p className="text-gray-600 text-sm sm:text-base mb-2">
+                    {blog.desc}
+                  </p>
                   <div className="flex items-center text-indigo-600 font-semibold text-sm cursor-pointer hover:text-indigo-800">
                     <span>Read More</span>
                     <FiArrowRight className="ml-2" />
