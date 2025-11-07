@@ -12,7 +12,11 @@ import {
   FiInstagram,
 } from "react-icons/fi";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { HiOutlineLocationMarker, HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
+import {
+  HiOutlineLocationMarker,
+  HiOutlineMail,
+  HiOutlinePhone,
+} from "react-icons/hi";
 import { TbArrowUpRight } from "react-icons/tb";
 import { PiShoppingCartBold } from "react-icons/pi";
 
@@ -21,65 +25,92 @@ export default function Navbar() {
   const [infoOpen, setInfoOpen] = useState(false);
 
   const navLinks = [
-    { name: "HOME", href: "/" },
-    { name: "SERVICES", href: "/services" },
-    { name: "BLOG", href: "/blog" },
-    { name: "PAGES", href: "/pages" },    
-    { name: "CONTACT US", href: "/contactus" },
+    { name: "Home" },
+    { name: "Services" },
+    { name: "Blog" },
+    { name: "Pages" },
+    { name: "Contact Us" },
   ];
 
   return (
     <header className="w-full bg-white shadow-sm fixed top-0 left-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-30">
+        <div className="flex items-center justify-between h-18 lg:h-30">
           {/* Left: Logo */}
-          <div className="flex items-center">
-            <a href="/" className="flex items-center gap-3">
-              <div className="w-35 h-30 relative">
-                <Image
-                  src="/ai-logo.svg"
-                  alt="Logo"
-                  fill
-                  sizes="40px"
-                  className="object-contain"
-                />
-              </div>
-            </a>
-          </div>
+          <a href="/" className="flex items-center gap-3">
+            <div className="relative w-36 h-10">
+              <Image
+                src="/ai-logo.svg"
+                alt="Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </a>
 
-          {/* Center: Nav Links (Desktop Only) */}
-          <div className="hidden md:flex md:space-x-6">
+          {/* Center Nav Links */}
+          <div className="hidden xl:flex xl:space-x-6 relative">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="flex items-center gap-1 text-gray-700 hover:text-indigo-600 px-2 py-1 rounded-md text-lg"
-              >
-                {link.name}
-                <IoMdArrowDropdown className="text-lg" />
-              </a>
+              <div key={link.name} className="relative group">
+                <button className="flex items-center gap-1 text-gray-700 hover:text-indigo-600 px-2 py-1 rounded-md text-lg">
+                  {link.name.toUpperCase()}
+                  <IoMdArrowDropdown className="text-lg" />
+                </button>
+
+                {/* === HOME DROPDOWN (FULL WIDTH) === */}
+                {link.name === "Home" && (
+                  <div className="absolute left-86 -translate-x-1/2 top-full mt-4 w-screen bg-[#f4f4f6] border-t-4 border-indigo-700 hidden group-hover:flex justify-center z-40">
+                    <div className="max-w-[1600px] w-full px-10 py-10">
+                      <div className="grid grid-cols-6 gap-6 justify-items-center">
+                        {[
+                          { title: "IMAGE GENERATOR", img: "/aiglobe-RTL-demo-home1.jpg" },
+                          { title: "CHAT BOT", img: "/aI-TECHNOLOGY.jpg" },
+                          { title: "AI TECHNOLOGY", img: "/chatbot.jpg" },
+                          { title: "CONTENT GENERATOR", img: "/CONTENT-Generator.jpg" },
+                          { title: "BUSINESS - AI", img: "/Buisness-AI.jpg" },
+                          { title: "RTL - DEMOS", img: "/aiglobe-RTL-demo-home1.jpg" },
+                        ].map((item, i) => (
+                          <div
+                            key={i}
+                            className="w-56 bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer"
+                          >
+                            <div className="relative w-full h-44 overflow-hidden">
+                              <Image
+                                src={item.img}
+                                alt={item.title}
+                                fill
+                                className="object-cover hover:scale-105 transition-transform duration-500"
+                              />
+                            </div>
+                            <div className="bg-[#4B29CF] text-white text-center py-3 font-semibold text-sm uppercase tracking-wide">
+                              {item.title}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 
-          {/* Right: Shop, Get Started, Hamburger */}
+          {/* Right Side */}
           <div className="flex items-center gap-3">
-            <a
-              href="/shop"
-              className="p-2 rounded-md hover:bg-gray-100"
-            >
-            <PiShoppingCartBold className="text-4xl font-light text-gray-800" />
-            </a>
+            <button className="p-2 rounded-md hover:bg-gray-100">
+              <PiShoppingCartBold className="text-3xl text-gray-800" />
+            </button>
 
-            <a
-              href="/get-started"
-              className="hidden sm:inline-flex items-center px-6 py-2 border border-transparent text-md rounded-full shadow-sm text-white bg-indigo-900 hover:bg-indigo-700"
-            >
+            <button className="hidden sm:inline-flex items-center px-6 py-2 border border-transparent text-md rounded-full shadow-sm text-white bg-indigo-900 hover:bg-indigo-700 lg:inline-flex">
               Get Started
-            </a>
+            </button>
 
-            {/* Hamburger for Info Drawer */}
             <button
-              onClick={() => setInfoOpen(true)}
+              onClick={() =>
+                window.innerWidth < 1024
+                  ? setMenuOpen(true)
+                  : setInfoOpen(true)
+              }
               className="text-2xl text-gray-800"
             >
               <FiMenu />
@@ -88,7 +119,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Background Overlay */}
+      {/* Overlay */}
       {(menuOpen || infoOpen) && (
         <div
           onClick={() => {
@@ -99,18 +130,45 @@ export default function Navbar() {
         ></div>
       )}
 
-      {/* Info Drawer (Right Side) */}
+      {/* === MOBILE MENU === */}
+      <div
+        className={`fixed top-0 right-0 h-full w-72 sm:w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex justify-end p-5 border-b border-gray-300">
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="text-2xl text-gray-700 hover:text-indigo-700"
+          >
+            <FiX />
+          </button>
+        </div>
+
+        <div className="flex flex-col divide-y divide-gray-300">
+          {navLinks.map((link) => (
+            <button
+              key={link.name}
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center justify-between px-6 py-4 text-gray-800 hover:bg-gray-50 hover:text-indigo-700 w-full text-left"
+            >
+              {link.name}
+              <FiChevronRight />
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* === DESKTOP INFO DRAWER === */}
       <div
         className={`fixed top-0 right-0 h-full w-80 sm:w-96 bg-[#1e1e1e] text-white z-50 shadow-xl transform transition-transform duration-300 ${
           infoOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex items-center justify-between p-5 border-b border-gray-700">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-white">
-              <span className="text-indigo-400">AI</span> GLOBE
-            </span>
-          </div>
+          <span className="text-2xl font-bold text-white">
+            <span className="text-indigo-400">AI</span> GLOBE
+          </span>
           <button
             onClick={() => setInfoOpen(false)}
             className="text-xl bg-indigo-600 p-1.5 rounded-full hover:bg-indigo-500"
@@ -122,8 +180,7 @@ export default function Navbar() {
         <div className="p-6 space-y-6 overflow-y-auto h-full">
           <p className="text-gray-300 text-sm leading-relaxed">
             In hac habitasse platea dictumst. Maecenas ut enim sed massa
-            feugiat placerat eget quis metus. Morbi rutrum quis orci eget
-            dictum. Nunc sit amet felis vulputate, consectetur metus non.
+            feugiat placerat eget quis metus.
           </p>
 
           <div className="space-y-4 text-sm">
@@ -131,12 +188,10 @@ export default function Navbar() {
               <HiOutlineLocationMarker className="text-xl text-indigo-400 mt-1" />
               <p>76 Mill Road, Penfield, NY 26.</p>
             </div>
-
             <div className="flex items-start gap-3">
               <HiOutlinePhone className="text-xl text-indigo-400 mt-1" />
               <p>+32 894 659 12</p>
             </div>
-
             <div className="flex items-start gap-3">
               <HiOutlineMail className="text-xl text-indigo-400 mt-1" />
               <p>support@example.com</p>
@@ -158,30 +213,17 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-4 mt-6">
-            <a
-              href="#"
-              className="p-2 bg-indigo-600 rounded-full hover:bg-indigo-500"
-            >
-              <FiFacebook />
-            </a>
-            <a
-              href="#"
-              className="p-2 bg-indigo-600 rounded-full hover:bg-indigo-500"
-            >
-              <FiTwitter />
-            </a>
-            <a
-              href="#"
-              className="p-2 bg-indigo-600 rounded-full hover:bg-indigo-500"
-            >
-              <FiYoutube />
-            </a>
-            <a
-              href="#"
-              className="p-2 bg-indigo-600 rounded-full hover:bg-indigo-500"
-            >
-              <FiInstagram />
-            </a>
+            {[FiFacebook, FiTwitter, FiYoutube, FiInstagram].map(
+              (Icon, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="p-2 bg-indigo-600 rounded-full hover:bg-indigo-500"
+                >
+                  <Icon />
+                </a>
+              )
+            )}
           </div>
         </div>
       </div>
