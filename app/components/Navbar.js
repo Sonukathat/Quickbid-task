@@ -57,7 +57,7 @@ export default function Navbar() {
                   <IoMdArrowDropdown className="text-lg" />
                 </button>
 
-                {/* === HOME DROPDOWN (FULL WIDTH) === */}
+                {/* === HOME DROPDOWN === */}
                 {link.name === "Home" && (
                   <div className="absolute left-86 -translate-x-1/2 top-full mt-4 w-screen bg-[#f4f4f6] border-t-4 border-indigo-700 hidden group-hover:flex justify-center z-40">
                     <div className="max-w-[1600px] w-full px-10 py-10">
@@ -89,6 +89,59 @@ export default function Navbar() {
                         ))}
                       </div>
                     </div>
+                  </div>
+                )}
+
+                {/* === SERVICES DROPDOWN === */}
+                {link.name === "Services" && (
+                  <div className="absolute left-0 top-full mt-2 w-48 bg-white border-t-4 border-indigo-700 rounded-lg shadow-lg hidden group-hover:block z-50">
+                    <ul className="flex flex-col text-gray-800">
+                      {["Service Listing", "Service Detail"].map((item, i) => (
+                        <li
+                          key={i}
+                          className="px-5 py-3 hover:bg-gray-100 cursor-pointer text-sm font-semibold tracking-wide"
+                        >
+                          {item.toUpperCase()}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* === BLOG DROPDOWN === */}
+                {link.name === "Blog" && (
+                  <div className="absolute left-0 top-full mt-2 w-48 bg-white border-t-4 border-indigo-700 rounded-lg shadow-lg hidden group-hover:block z-50">
+                    <ul className="flex flex-col text-gray-800">
+                      {["Blog Listing", "Blog Single"].map((item, i) => (
+                        <li
+                          key={i}
+                          className="px-5 py-3 hover:bg-gray-100 cursor-pointer text-sm font-semibold tracking-wide"
+                        >
+                          {item.toUpperCase()}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* === CONTACT US DROPDOWN === */}
+                {link.name === "Contact Us" && (
+                  <div className="absolute left-0 top-full mt-2 w-56 bg-white border-t-4 border-indigo-700 rounded-lg shadow-lg hidden group-hover:block z-50">
+                    <ul className="flex flex-col text-gray-800">
+                      {[
+                        "Enquiry Now",
+                        "Login or Register",
+                        "Privacy Policy",
+                        "FAQ",
+                      ].map((item, i) => (
+                        <li
+                          key={i}
+                          className="px-5 py-3 hover:bg-gray-100 cursor-pointer text-sm font-semibold tracking-wide"
+                        >
+                          {item.toUpperCase()}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 )}
               </div>
