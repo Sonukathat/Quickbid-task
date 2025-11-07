@@ -138,7 +138,7 @@ export default function Navbar() {
 
                 {/* === PAGES DROPDOWN (MEGA MENU) === */}
                 {link.name === "Pages" && (
-                  <div className="absolute left-0 -translate-x-1/2 top-full mt-4 w-[1400px] max-w-7xl bg-[#1E1E1E] border-t-4 border-indigo-700 hidden group-hover:flex justify-between px-10 py-8 rounded-lg shadow-xl text-white z-50">
+                  <div className="absolute left-0 -translate-x-1/2 top-full mt-4 w-[1400px] max-w-7xl bg-[#1E1E1E] border-t-4 border-indigo-700 hidden group-hover:flex justify-between px-12 py-8 rounded-lg shadow-xl text-white z-50">
                     {/* Left Video Section */}
                     <div className="w-1/3 pr-6">
                       <h3 className="text-3xl font-semibold mb-3">
@@ -162,8 +162,8 @@ export default function Navbar() {
                     </div>
 
                     {/* Center: Inner Pages */}
-                    <div className="w-1/3 space-y-4">
-                      <h4 className="text-lg font-semibold mb-3">
+                    <div className="w-1/3 space-y-6">
+                      <h4 className="text-3xl font-semibold mb-3">
                         AI Globe Inner Pages
                       </h4>
                       {[
@@ -173,8 +173,8 @@ export default function Navbar() {
                         { icon: <FaRobot />, title: "AI Globe Features", desc: "Dive into our AI Features page to explore cutting-edge technologies driving innovation." },
                         { icon: <FaExclamationTriangle />, title: "404 Error", desc: "Lost? Don't worry, you've stumbled upon our playful 404 page. Let's navigate together." },
                       ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <div className="text-pink-400 text-2xl mt-1">{item.icon}</div>
+                        <div key={i} className="flex items-start gap-8">
+                          <div className="text-pink-400 text-3xl mt-1">{item.icon}</div>
                           <div>
                             <p className="font-semibold text-2xl">{item.title}</p>
                             <p className="text-sm text-gray-400">{item.desc}</p>
@@ -184,8 +184,8 @@ export default function Navbar() {
                     </div>
 
                     {/* Right: Shop Pages */}
-                    <div className="w-1/3 space-y-4">
-                      <h4 className="text-lg font-semibold mb-3">
+                    <div className="w-1/3 space-y-6">
+                      <h4 className="text-3xl font-semibold mb-3">
                         AI Globe Shop Pages
                       </h4>
                       {[
@@ -195,8 +195,8 @@ export default function Navbar() {
                         { icon: <FaCreditCard />, title: "Checkout Page", desc: "Safely and securely complete your transaction on our encrypted and reliable checkout page platform." },
                         { icon: <FaHeart />, title: "Wishlist Page", desc: "Keep track of items you love with our convenient and customizable wishlist page, designed for effortless browsing." },
                       ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <div className="text-pink-400 text-2xl mt-1">{item.icon}</div>
+                        <div key={i} className="flex items-start gap-8">
+                          <div className="text-pink-400 text-3xl mt-1">{item.icon}</div>
                           <div>
                             <p className="font-semibold text-2xl">{item.title}</p>
                             <p className="text-sm text-gray-400">{item.desc}</p>
