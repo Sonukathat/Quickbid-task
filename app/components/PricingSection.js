@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { BsCheck2 } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 export default function PricingSection() {
   const [isYearly, setIsYearly] = useState(false);
@@ -52,21 +53,47 @@ export default function PricingSection() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <motion.section
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="py-20 bg-white overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto text-center px-6">
-        {/* Top Section */}
-        <button className="px-5 py-1 bg-linear-to-r from-indigo-600 to-blue-500 text-white font-semibold rounded-md mb-4">
+        <motion.button
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="px-5 py-1 bg-linear-to-r from-indigo-600 to-blue-500 text-white font-semibold rounded-md mb-4"
+        >
           Creative Approach
-        </button>
+        </motion.button>
 
-        <h2 className="text-4xl md:text-5xl font-extrabold leading-snug mb-4">
+        <motion.h2
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="text-4xl md:text-5xl font-extrabold leading-snug mb-4"
+        >
           World’s <span className="text-pink-500">Best Affordable</span>{" "}
           <span className="text-indigo-700">Pricing Plan</span>
-        </h2>
+        </motion.h2>
 
-        {/* Toggle Section */}
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <span className={`font-medium ${!isYearly ? "text-indigo-700" : "text-gray-600"}`}>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="flex items-center justify-center gap-3 mb-6"
+        >
+          <span
+            className={`font-medium ${
+              !isYearly ? "text-indigo-700" : "text-gray-600"
+            }`}
+          >
             Monthly
           </span>
           <label className="relative inline-flex items-center cursor-pointer">
@@ -76,33 +103,62 @@ export default function PricingSection() {
               checked={isYearly}
               onChange={() => setIsYearly(!isYearly)}
             />
-          <div className="w-12 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-6 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+            <div className="w-12 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-6 after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
           </label>
-          <span className={`font-medium ${isYearly ? "text-indigo-700" : "text-gray-600"}`}>
+          <span
+            className={`font-medium ${
+              isYearly ? "text-indigo-700" : "text-gray-600"
+            }`}
+          >
             Yearly
           </span>
-          <button className="px-3 py-1 text-xs bg-indigo-600 text-white rounded-md font-semibold">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            className="px-3 py-1 text-xs bg-indigo-600 text-white rounded-md font-semibold"
+          >
             10% Discount
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
-        <p className="text-gray-500 max-w-2xl mx-auto mb-12">
-          Nibh sit amet commodo nulla. Dui id ornare arcu odio ut sem nulla. Quam quisque id diam
-          vel quam elementum pulvinar. Sit amet nulla facilisi morbi. Massa tincidunt dui ut
-          ornare lectus.
-        </p>
+        <motion.p
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          viewport={{ once: true }}
+          className="text-gray-500 max-w-2xl mx-auto mb-12"
+        >
+          Nibh sit amet commodo nulla. Dui id ornare arcu odio ut sem nulla.
+          Quam quisque id diam vel quam elementum pulvinar. Sit amet nulla
+          facilisi morbi. Massa tincidunt dui ut ornare lectus.
+        </motion.p>
 
-        {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 80, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                duration: 0.7,
+                delay: 1 + index * 0.2,
+                ease: "easeOut",
+              }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.03 }}
               className={`rounded-2xl p-8 shadow-md hover:shadow-xl transition ${plan.color}`}
             >
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">{plan.name}</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-4">
+                {plan.name}
+              </h3>
               <div className="text-4xl font-extrabold text-gray-900 mb-1">
-                ${isYearly ? (plan.price * 12 * 0.9).toFixed(2) : plan.price.toFixed(2)}
-                <span className="text-lg text-gray-600 font-normal"> /Month</span>
+                $
+                {isYearly
+                  ? (plan.price * 12 * 0.9).toFixed(2)
+                  : plan.price.toFixed(2)}
+                <span className="text-lg text-gray-600 font-normal">
+                  {" "}
+                  /Month
+                </span>
               </div>
               <p className="text-sm text-gray-500 mb-4">
                 For Small Projects Upto 10 Users
@@ -112,22 +168,35 @@ export default function PricingSection() {
 
               <ul className="text-left space-y-3">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-2 text-gray-700">
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 1.3 + index * 0.2 + i * 0.05,
+                    }}
+                    viewport={{ once: true }}
+                    className="flex items-start gap-2 text-gray-700"
+                  >
                     <BsCheck2 className="text-pink-500 mt-1 w-4 h-4" />
                     <span>{feature}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
 
-              <button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 200, damping: 15 }}
                 className={`mt-8 w-full py-2 text-white font-medium rounded-full transition ${plan.buttonColor}`}
               >
                 Choose Plan
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
