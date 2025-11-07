@@ -295,7 +295,6 @@ export default function Navbar() {
           ))}
         </div>
       </div>
-
       {/* === DESKTOP INFO DRAWER === */}
       <div
         className={`fixed top-0 right-0 h-full w-80 sm:w-96 bg-[#1e1e1e] text-white z-50 shadow-xl transform transition-transform duration-300 ${
@@ -367,4 +366,3 @@ export default function Navbar() {
     </header>
   );
 }
-  
