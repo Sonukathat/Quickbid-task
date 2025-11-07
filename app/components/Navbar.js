@@ -19,6 +19,18 @@ import {
 } from "react-icons/hi";
 import { TbArrowUpRight } from "react-icons/tb";
 import { PiShoppingCartBold } from "react-icons/pi";
+import {
+  FaInfoCircle,
+  FaUsers,
+  FaDollarSign,
+  FaRobot,
+  FaExclamationTriangle,
+  FaList,
+  FaBoxOpen,
+  FaShoppingCart,
+  FaCreditCard,
+  FaHeart,
+} from "react-icons/fa";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -124,6 +136,77 @@ export default function Navbar() {
                   </div>
                 )}
 
+                {/* === PAGES DROPDOWN (MEGA MENU) === */}
+                {link.name === "Pages" && (
+                  <div className="absolute left-0 -translate-x-1/2 top-full mt-4 w-[1400px] max-w-7xl bg-[#1E1E1E] border-t-4 border-indigo-700 hidden group-hover:flex justify-between px-10 py-8 rounded-lg shadow-xl text-white z-50">
+                    {/* Left Video Section */}
+                    <div className="w-1/3 pr-6">
+                      <h3 className="text-3xl font-semibold mb-3">
+                        Watch a demo walk-through
+                      </h3>
+                      <p className="text-sm text-gray-300 mb-4">
+                        Enter the AI realm: Experience innovation, expert
+                        insights, and transformative interfaces. Discover the
+                        future now!
+                      </p>
+                      <div className="w-full h-48 bg-black rounded-lg overflow-hidden">
+                        <iframe
+                          width="100%"
+                          height="100%"
+                          src="https://www.youtube.com/embed/7Pq-S557XQU"
+                          title="AI Demo Video"
+                          frameBorder="0"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                    </div>
+
+                    {/* Center: Inner Pages */}
+                    <div className="w-1/3 space-y-4">
+                      <h4 className="text-lg font-semibold mb-3">
+                        AI Globe Inner Pages
+                      </h4>
+                      {[
+                        { icon: <FaInfoCircle />, title: "About Us", desc: "As industry leaders, we leverage cutting-edge technology to drive meaningful results" },
+                        { icon: <FaUsers />, title: "Our Team", desc: "Discover the faces behind our success and the unique strengths they bring to the table." },
+                        { icon: <FaDollarSign />, title: "Pricing Plan", desc: "Explore our flexible pricing plans designed to suit your budget and business needs." },
+                        { icon: <FaRobot />, title: "AI Globe Features", desc: "Dive into our AI Features page to explore cutting-edge technologies driving innovation." },
+                        { icon: <FaExclamationTriangle />, title: "404 Error", desc: "Lost? Don't worry, you've stumbled upon our playful 404 page. Let's navigate together." },
+                      ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <div className="text-pink-400 text-2xl mt-1">{item.icon}</div>
+                          <div>
+                            <p className="font-semibold text-2xl">{item.title}</p>
+                            <p className="text-sm text-gray-400">{item.desc}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Right: Shop Pages */}
+                    <div className="w-1/3 space-y-4">
+                      <h4 className="text-lg font-semibold mb-3">
+                        AI Globe Shop Pages
+                      </h4>
+                      {[
+                        { icon: <FaList />, title: "Product Listing", desc: "Access our comprehensive product listing page to find exactly what you're looking for quickly and efficiently." },
+                        { icon: <FaBoxOpen />, title: "Product Single", desc: "Experience our products up close with our interactive and informative single product page layout." },
+                        { icon: <FaShoppingCart />, title: "Cart Page", desc: "Review and manage your selected items conveniently on our streamlined and user-friendly cart page." },
+                        { icon: <FaCreditCard />, title: "Checkout Page", desc: "Safely and securely complete your transaction on our encrypted and reliable checkout page platform." },
+                        { icon: <FaHeart />, title: "Wishlist Page", desc: "Keep track of items you love with our convenient and customizable wishlist page, designed for effortless browsing." },
+                      ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <div className="text-pink-400 text-2xl mt-1">{item.icon}</div>
+                          <div>
+                            <p className="font-semibold text-2xl">{item.title}</p>
+                            <p className="text-sm text-gray-400">{item.desc}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* === CONTACT US DROPDOWN === */}
                 {link.name === "Contact Us" && (
                   <div className="absolute left-0 top-full mt-2 w-56 bg-white border-t-4 border-indigo-700 rounded-lg shadow-lg hidden group-hover:block z-50">
@@ -182,104 +265,6 @@ export default function Navbar() {
           className="fixed inset-0 bg-black/40 z-40"
         ></div>
       )}
-
-      {/* === MOBILE MENU === */}
-      <div
-        className={`fixed top-0 right-0 h-full w-72 sm:w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ${
-          menuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="flex justify-end p-5 border-b border-gray-300">
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="text-2xl text-gray-700 hover:text-indigo-700"
-          >
-            <FiX />
-          </button>
-        </div>
-
-        <div className="flex flex-col divide-y divide-gray-300">
-          {navLinks.map((link) => (
-            <button
-              key={link.name}
-              onClick={() => setMenuOpen(false)}
-              className="flex items-center justify-between px-6 py-4 text-gray-800 hover:bg-gray-50 hover:text-indigo-700 w-full text-left"
-            >
-              {link.name}
-              <FiChevronRight />
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* === DESKTOP INFO DRAWER === */}
-      <div
-        className={`fixed top-0 right-0 h-full w-80 sm:w-96 bg-[#1e1e1e] text-white z-50 shadow-xl transform transition-transform duration-300 ${
-          infoOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="flex items-center justify-between p-5 border-b border-gray-700">
-          <span className="text-2xl font-bold text-white">
-            <span className="text-indigo-400">AI</span> GLOBE
-          </span>
-          <button
-            onClick={() => setInfoOpen(false)}
-            className="text-xl bg-indigo-600 p-1.5 rounded-full hover:bg-indigo-500"
-          >
-            <FiX />
-          </button>
-        </div>
-
-        <div className="p-6 space-y-6 overflow-y-auto h-full">
-          <p className="text-gray-300 text-sm leading-relaxed">
-            In hac habitasse platea dictumst. Maecenas ut enim sed massa
-            feugiat placerat eget quis metus.
-          </p>
-
-          <div className="space-y-4 text-sm">
-            <div className="flex items-start gap-3">
-              <HiOutlineLocationMarker className="text-xl text-indigo-400 mt-1" />
-              <p>76 Mill Road, Penfield, NY 26.</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <HiOutlinePhone className="text-xl text-indigo-400 mt-1" />
-              <p>+32 894 659 12</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <HiOutlineMail className="text-xl text-indigo-400 mt-1" />
-              <p>support@example.com</p>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-2">Get News & Updates</h3>
-            <div className="flex items-center bg-white rounded-full overflow-hidden">
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="flex-1 px-4 py-2 text-black focus:outline-none"
-              />
-              <button className="bg-indigo-600 p-3 text-white">
-                <TbArrowUpRight className="text-xl" />
-              </button>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4 mt-6">
-            {[FiFacebook, FiTwitter, FiYoutube, FiInstagram].map(
-              (Icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="p-2 bg-indigo-600 rounded-full hover:bg-indigo-500"
-                >
-                  <Icon />
-                </a>
-              )
-            )}
-          </div>
-        </div>
-      </div>
     </header>
   );
 }
